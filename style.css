@@ -1,0 +1,97 @@
+*
+{
+    font-family: "Roboto", "Shrikhand", Tahoma, sans-serif;
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+.action
+{
+    counter-reset: li;
+    list-style: none;
+    font: 14px "Roboto";
+    padding:0;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+.action a
+{
+    position: relative;
+    display:block;
+    padding: .em .4em 4em 2em;
+    margin: .5em 0;
+    background: #DAD2CA;
+    color: #444;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: .3s ease-out;
+}
+.action a:hover{
+    background:#E9E4E0;
+}
+.action a:hover::before
+{
+    transform: rotate(360deg);
+}
+.action a::before
+{
+    content:counter(li);
+    counter-increment: li;
+    position: absolute;
+    left:-1.3em;
+    top:50%;
+    margin-top:-1.3em;
+    background: #8FD4C1;
+    height:2em;
+    width:2em;
+    line-height:2em;
+    border: .3em solid white;
+    text-align: center;
+    font-weight: bold;
+    border-radius:2em;
+    transition: all .3s ease-out;
+}
+.action > li
+{
+list-style-type: circle;
+}
+
+ul { list-style-image: url('puce.gif'); 
+list-style-position: outside;}
+
+
+
+
+
+
+
+.menu
+{
+    width: 300px;
+}
+.menu ul
+{
+display:flex;
+flex-direction: row;
+}
+.menu ul li
+{
+    list-style-type: none;
+    border: 1px solid black;
+    border-radius: 10%;
+}
+.text
+{
+    display: flex;
+    flex-direction: column;
+    /*inline-block;
+    vertical-align: middle;*/
+    width:80%;
+}
+.price
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width:20%;
+    /*hover background bleu*/
+}

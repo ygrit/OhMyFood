@@ -1,1 +1,54 @@
-toto
+<!DOCTYPE html> 
+    <html lang="fr">
+    <head>
+        <title>Oh my food</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Oh my food - Réservez le menu qui vous convient dans des restaurants d'exception à Paris!">
+        <script src="https://kit.fontawesome.com/0dfb43c94e.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css">
+        <!--pour tout-->
+        <link rel="stylesheet" media="screen and (min-width:768px) and (max-width:991px)" href="css/moyenne_resolution.css">
+        <!--pour les tablettes-->
+        <link rel="stylesheet" media="screen and (max-width: 767px)" href="css/petite_resolution.css"> 
+        <!--pour les téléphones-->
+    </head>
+    <body>
+        <div class="header">
+            <div class="topbar">
+                <div class="topbar__logo"> 
+                    <a href="index.html" class="go-back-button">
+                        <img src="logo.png" Alt="Oh my food! Découvrez des restaurants d'exception, réservez le menu qui vous convient"/>Oh my food <!--retournez à la page d'accueil!pour les autres pages"-->
+                    </a>
+                </div>
+            </div>
+            <div class="header__location-panel">
+                <form class="search-form" method="post" action="traitement.php">
+                    <input type="search" name="search" id="search-input" value="" maxlenght:"60" placeholder="Paris, Belleville"/>
+                    <label for="search-input"></label>
+                    <button type="image" src="url*.jpg" id="search-button"/>
+                </form>
+            </div>
+            <h1 class="header__title">Réservez le menu qui vous convient!</h1>
+            <h2 class="header__subtitle">Découvrez des restaurants d'exception, séléctionnés par nos soins.</h2>
+            <div class="list_resraurants">
+                <a href="#">Explorez nos restaurants</a>
+            </div>
+        </div>
+        </header>
+        <section>
+            <div>
+            <ul class="action">Fonctionnement</ul>
+                <li><a href="#"><span class="icon"></span>Choisissez un restaurant</a></li>
+                <li><a href="#"><span class="icon"></span>Composez votre menu</a></li>
+                <li><a href="#"><span class="icon"></span>Dégustez au restaurant</a></li>
+            </div>
+            <ul class="menu">
+                <li><span class="text">Tartare de pulpe acidulé. <br/>Au zests d'orange</span><span class="price">25€</span></li>
+                <li><span class="text">Tartare de pulpe acidulé.<br/> Au zests d'orange</span><span class="price">25€</span></li>
+                <li><span class="text">Tartare de pulpe acidulé.<br/> Au zests d'orange</span><span class="price">25€</span></li>
+            </ul>
+        </section>
+    </body>
+</html>
