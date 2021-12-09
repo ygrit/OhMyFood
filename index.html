@@ -9,46 +9,60 @@
         <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="style.css">
         <!--pour tout-->
-        <link rel="stylesheet" media="screen and (min-width:768px) and (max-width:991px)" href="css/moyenne_resolution.css">
-        <!--pour les tablettes-->
+        <!--<link rel="stylesheet" media="screen and (min-width:768px) and (max-width:991px)" href="css/moyenne_resolution.css">
+        pour les tablettes
         <link rel="stylesheet" media="screen and (max-width: 767px)" href="css/petite_resolution.css"> 
-        <!--pour les téléphones-->
+        pour les téléphones-->
     </head>
     <body>
-        <div class="header">
+        <header>
             <div class="topbar">
                 <div class="topbar__logo"> 
-                    <a href="index.html" class="go-back-button">
-                        <img src="logo.png" Alt="Oh my food! Découvrez des restaurants d'exception, réservez le menu qui vous convient"/>Oh my food <!--retournez à la page d'accueil!pour les autres pages"-->
-                    </a>
+                    <a href="index.html" class="go-back-button"> Ohmyfood <!--retournez à la page d'accueil!pour les autres pages"--></a>
                 </div>
             </div>
             <div class="header__location-panel">
                 <form class="search-form" method="post" action="traitement.php">
-                    <input type="search" name="search" id="search-input" value="" maxlenght:"60" placeholder="Paris, Belleville"/>
-                    <label for="search-input"></label>
-                    <button type="image" src="url*.jpg" id="search-button"/>
+                    <p>
+                        <input type="search" name="search" id="search-input" value="" placeholder="Paris, Belleville"/>
+                        <label for="search-input"></label>
+                        <input type="image" src="url*.jpg" id="search-button"/>
+                    </p>
                 </form>
             </div>
             <h1 class="header__title">Réservez le menu qui vous convient!</h1>
             <h2 class="header__subtitle">Découvrez des restaurants d'exception, séléctionnés par nos soins.</h2>
-            <div class="list_resraurants">
+            <div class="button list_restaurants">
                 <a href="#">Explorez nos restaurants</a>
             </div>
-        </div>
         </header>
         <section>
             <div>
             <ul class="action">Fonctionnement</ul>
-                <li><a href="#"><span class="icon"></span>Choisissez un restaurant</a></li>
-                <li><a href="#"><span class="icon"></span>Composez votre menu</a></li>
-                <li><a href="#"><span class="icon"></span>Dégustez au restaurant</a></li>
+                <li class="button"><a href="#"><span class="icon"><i class="fas fa-mobile-alt"></i></span>Choisissez un restaurant</a></li>
+                <li class="button"><a href="#"><span class="icon"><i class="fas fa-list-ul"></i></span>Composez votre menu</a></li>
+                <li class="button"><a href="#"><span class="icon"><i class="fas fa-store"></i></span>Dégustez au restaurant</a></li>
             </div>
-            <ul class="menu">
-                <li><span class="text">Tartare de pulpe acidulé. <br/>Au zests d'orange</span><span class="price">25€</span></li>
-                <li><span class="text">Tartare de pulpe acidulé.<br/> Au zests d'orange</span><span class="price">25€</span></li>
-                <li><span class="text">Tartare de pulpe acidulé.<br/> Au zests d'orange</span><span class="price">25€</span></li>
-            </ul>
+            <div class="restaurants">
+                <a href="page2.html" >
+                    <div class="card">
+                        <img class="card__image" src="images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt=""/> 
+                        <h3 class="card__title">La palette du gout</h3> 
+                        <h4 class="card__subtitle">Ménilmontant</h4> 
+                        <span class="icon icon-heart"><i class="far fa-heart"></i></span>
+                    </div>
+                </a>
+            </div>
         </section>
+        <footer>
+            <Logo></Logo>
+            <ul>
+                <li><span class="icon"><i class="fas fa-utensils"></i></span>Proposer un restaurant</li>
+                <li><span class="icon"><i class="fas fa-hands-helping"></i></span>Devenir partenaire</li>
+                <li>Mentions légales</li>
+                <li>Contact</li>
+            </ul>
+        </footer>
+            
     </body>
 </html>

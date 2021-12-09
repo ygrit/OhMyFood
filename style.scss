@@ -1,0 +1,166 @@
+/* Polices personnalisées*/
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Shrikhand&display=swap";
+*
+{
+    font-family: 'Roboto', 'Shrikhand', sans-serif;
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+/* LES VARIABLES COULEURS */
+$primary-color: #9356DC;
+$secondary-color: #FF79DA;
+$third-color: #99E2D0;
+
+/* MIXIN */
+@mixin flexcol(){
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+@mixin flexrow(){
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+header {
+	@include flexcol();
+
+    &__location-panel{
+        width:100%;
+    }
+}
+a {
+	text-decoration: none;
+	color: black;
+	width: 100%;
+}
+.form {
+	width: 100%;
+	padding: 10px;
+}
+.topbar__logo {
+	font-family: 'Shrikhand';
+	font-size: 40px;
+	font-weight: bold;
+}
+.card {
+	width: 100%;
+	height: auto;
+	@include flexcol();
+    
+    &__image {
+    height:200px;
+	object-fit: cover;
+	overflow: hidden;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    }
+    
+    &__title {
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 20px;
+    &__subtitle{
+    font-family: 'Roboto';
+    font-weight: 100;
+    font-size: 22px;
+    }
+    }
+}
+.button {
+	padding: 15px;
+	border-radius: 20px;
+	line-height: 25px;
+}
+.list-restaurants {
+	border: 1px solid $primary-color;
+    background-color: $primary-color;
+    border-radius: 30px;
+}
+footer {
+	width: 95%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	font-family: 'Raleway', sans-serif;
+	background-color: #282b2a;
+	padding: 20px 0px 20px 0px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	ul {
+		list-style-type: none;
+		li {
+			border: none;
+			font-size: 18px;
+			margin: 0;
+			padding-bottom: 20px;
+			line-height: 150%;
+		}
+	}
+}
+
+
+.action
+{
+    width:90%;
+    counter-reset: li;
+    list-style: none;
+    font: 14px "Roboto";
+    padding:0;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+.action a
+{
+    position: relative;
+    display:block;
+    padding: 0.0em .4em 4em 2em;
+    margin: .5em 0;
+    background: #DAD2CA;
+    color: #444;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: .3s ease-out;
+}
+.action a:hover{
+    background:#E9E4E0;
+}
+.action a:hover::before
+{
+    transform: rotate(360deg);
+}
+.action a::before
+{
+    content:counter(li);
+    counter-increment: li;
+    position: absolute;
+    left:-1.3em;
+    top:50%;
+    margin-top:-1.3em;
+    background: #8FD4C1;
+    height:2em;
+    width:2em;
+    line-height:2em;
+    border: .3em solid white;
+    text-align: center;
+    font-weight: bold;
+    border-radius:2em;
+    transition: all .3s ease-out;
+}
+.action > li
+{
+list-style-type: circle;
+}
+
+ul { list-style-image: url('puce.gif'); 
+list-style-position: outside;}
+
+
+
+
+
+

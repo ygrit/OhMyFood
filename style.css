@@ -1,97 +1,156 @@
-*
-{
-    font-family: "Roboto", "Shrikhand", Tahoma, sans-serif;
-    padding:0;
-    margin:0;
-    box-sizing:border-box;
-}
-.action
-{
-    counter-reset: li;
-    list-style: none;
-    font: 14px "Roboto";
-    padding:0;
-    text-shadow: 0 1px 0 rgba(255,255,255,.5);
-}
-.action a
-{
-    position: relative;
-    display:block;
-    padding: .em .4em 4em 2em;
-    margin: .5em 0;
-    background: #DAD2CA;
-    color: #444;
-    text-decoration: none;
-    border-radius: .3em;
-    transition: .3s ease-out;
-}
-.action a:hover{
-    background:#E9E4E0;
-}
-.action a:hover::before
-{
-    transform: rotate(360deg);
-}
-.action a::before
-{
-    content:counter(li);
-    counter-increment: li;
-    position: absolute;
-    left:-1.3em;
-    top:50%;
-    margin-top:-1.3em;
-    background: #8FD4C1;
-    height:2em;
-    width:2em;
-    line-height:2em;
-    border: .3em solid white;
-    text-align: center;
-    font-weight: bold;
-    border-radius:2em;
-    transition: all .3s ease-out;
-}
-.action > li
-{
-list-style-type: circle;
+@charset "UTF-8";
+/* Polices personnalisées*/
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Shrikhand&display=swap";
+* {
+  font-family: "Roboto", "Shrikhand", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-ul { list-style-image: url('puce.gif'); 
-list-style-position: outside;}
-
-
-
-
-
-
-
-.menu
-{
-    width: 300px;
+/* LES VARIABLES COULEURS */
+/* MIXIN */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
-.menu ul
-{
-display:flex;
-flex-direction: row;
+header__location-panel {
+  width: 100%;
 }
-.menu ul li
-{
-    list-style-type: none;
-    border: 1px solid black;
-    border-radius: 10%;
+
+a {
+  text-decoration: none;
+  color: black;
+  width: 100%;
 }
-.text
-{
-    display: flex;
-    flex-direction: column;
-    /*inline-block;
-    vertical-align: middle;*/
-    width:80%;
+
+.form {
+  width: 100%;
+  padding: 10px;
 }
-.price
-{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width:20%;
-    /*hover background bleu*/
+
+.topbar__logo {
+  font-family: "Shrikhand";
+  font-size: 40px;
+  font-weight: bold;
 }
+
+.card {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.card__image {
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.card__title {
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: 20px;
+}
+.card__title__subtitle {
+  font-family: "Roboto";
+  font-size: 22px;
+}
+
+.button {
+  padding: 15px;
+  border-radius: 20px;
+  line-height: 25px;
+}
+
+.list-restaurants {
+  border: 1px solid #9356DC;
+  background-color: #9356DC;
+  border-radius: 30px;
+}
+
+footer {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: "Raleway", sans-serif;
+  background-color: #282b2a;
+  padding: 20px 0px 20px 0px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+footer ul {
+  list-style-type: none;
+}
+footer ul li {
+  border: none;
+  font-size: 18px;
+  margin: 0;
+  padding-bottom: 20px;
+  line-height: 150%;
+}
+
+.action {
+  width: 90%;
+  counter-reset: li;
+  list-style: none;
+  font: 14px "Roboto";
+  padding: 0;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.action a {
+  position: relative;
+  display: block;
+  padding: 0em 0.4em 4em 2em;
+  margin: 0.5em 0;
+  background: #DAD2CA;
+  color: #444;
+  text-decoration: none;
+  border-radius: 0.3em;
+  transition: 0.3s ease-out;
+}
+
+.action a:hover {
+  background: #E9E4E0;
+}
+
+.action a:hover::before {
+  transform: rotate(360deg);
+}
+
+.action a::before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -1.3em;
+  top: 50%;
+  margin-top: -1.3em;
+  background: #8FD4C1;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  border: 0.3em solid white;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 2em;
+  transition: all 0.3s ease-out;
+}
+
+.action > li {
+  list-style-type: circle;
+}
+
+ul {
+  list-style-image: url("puce.gif");
+  list-style-position: outside;
+}/*# sourceMappingURL=style.css.map */
