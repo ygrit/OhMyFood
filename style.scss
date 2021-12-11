@@ -21,7 +21,7 @@ $secondary-color: #FF79DA;
 $third-color: #99E2D0;
 $bg-color: #fafafa;
 $nav-color:darken($bg-color, 20%);
-$ft-color: darken($nav-color, 10%);
+$ft-color: darken($nav-color, 50%);
 
 
 /* FUNCTION */
@@ -107,27 +107,32 @@ section
 	width: 90%;
 	height: auto;
 	@include flexcol();
-    border-radius: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 25px;
     background-color: #ffff;
+    position:relative;
     
     &__image {
     width:100%;
     height: 350px;
 	object-fit: cover;
 	overflow: hidden;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     }
     
     &__title {
 	font-family: 'Roboto';
-	font-weight: 300;
-	font-size: 20px;
+	font-weight: bold;
+	font-size: 25px;
+    padding-left: 15px;
     }
     &__subtitle{
     font-family: 'Roboto';
     font-weight: 100;
-    font-size: 22px;
+    font-size: 26px;
+    padding-left: 15px;
     }
 }
 
@@ -166,9 +171,19 @@ section
     padding-right: 15px;
     padding-left: 15px;
     color:$nav-color;
+    transition: .3s ease-out;
+    
+    &:hover{
+        color: $primary-color;
+    }
 }
-
-
+.icon-heart{
+    position: absolute;
+    bottom: 25px;
+    right:25px;
+    font-size: 28px;
+}
+/* SECTION */
 .action
 {
     width:100%;
@@ -176,10 +191,12 @@ section
     padding:0;
     margin-bottom: 40px;
     background-color: white;
-    @include flexcol();
-
+    @include flexcol;
+    
     ol{
         width:90%;
+        @include flexcol();
+        list-style-type: none;
         counter-reset:li;
     }
 
@@ -195,27 +212,46 @@ section
         margin-top: 30px;
         
     }
+    /* A PENSER POUR LES AUTRES SECTIONS */
+    .button 
+    {
+    text-shadow:0 1px 0 grey;
+    transition: .3s ease-out;
+
+    &:hover{
+        background-color: lighten($secondary-color, 20%);    
+    }
+    
     a{
         width:100%;
-        
-    }
-    .button{
-        counter-increment: button;
-        
-        ::before{
-            content:counter(button) no-repeat;
-            border:3px solid $primary-color;
-            border-radius:30px;
-            font-size: 8px;
-            font-weight: bold;
-            background-color: $primary-color;
-            color:white;
-            margin-left: -40px;
+        position: relative;
+        display:block;
+        transition: .3s ease-out;
+
+        &:hover{
+            background-color: lighten($secondary-color, 20%);
         }
-        
+        &:hover:before{
+            transform: rotate(360deg);
+        }
+        &:before{
+            content: counter(li);
+            counter-increment: li;
+            position:absolute;
+            left: -30px;
+            width: 30px;
+            height: 30px;
+            background-color: $primary-color;
+            border: 1px solid $primary-color;
+            border-radius: 50%;
+            color:white;
+            text-align: center;
+            font-weight: bold;
+            transition: all .3s ease out;
+            }
+        }
     }
 }
-
 footer {
 	width: 100%;
 	font-family: 'Roboto';
@@ -225,12 +261,10 @@ footer {
 	margin-left: auto;
 	margin-right: auto;
     
-
     .icon{
         padding-left: 0;
         color:#ffff;
-    }
-
+        }
     h5{
         font-family: 'Shrikhand';
         font-size: 25px;
@@ -251,9 +285,3 @@ footer {
             }
 	    }
     }
-
-
-
-
-
-

@@ -93,8 +93,11 @@ section a {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border-radius: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: 25px;
   background-color: #ffff;
+  position: relative;
 }
 .card__image {
   width: 100%;
@@ -102,18 +105,20 @@ section a {
   -o-object-fit: cover;
      object-fit: cover;
   overflow: hidden;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 .card__title {
   font-family: "Roboto";
-  font-weight: 300;
-  font-size: 20px;
+  font-weight: bold;
+  font-size: 25px;
+  padding-left: 15px;
 }
 .card__subtitle {
   font-family: "Roboto";
   font-weight: 100;
-  font-size: 22px;
+  font-size: 26px;
+  padding-left: 15px;
 }
 
 .button {
@@ -156,8 +161,20 @@ section a {
   padding-right: 15px;
   padding-left: 15px;
   color: #c7c7c7;
+  transition: 0.3s ease-out;
+}
+.icon:hover {
+  color: #9356DC;
 }
 
+.icon-heart {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  font-size: 28px;
+}
+
+/* SECTION */
 .action {
   width: 100%;
   font: 20px "Roboto";
@@ -168,9 +185,15 @@ section a {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  /* A PENSER POUR LES AUTRES SECTIONS */
 }
 .action ol {
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  list-style-type: none;
   counter-reset: li;
 }
 .action p {
@@ -183,27 +206,45 @@ section a {
   max-width: 450px;
   margin-top: 30px;
 }
-.action a {
-  width: 100%;
-}
 .action .button {
-  counter-increment: button;
+  text-shadow: 0 1px 0 grey;
+  transition: 0.3s ease-out;
 }
-.action .button ::before {
-  content: counter(button) no-repeat;
-  border: 3px solid #9356DC;
-  border-radius: 30px;
-  font-size: 8px;
-  font-weight: bold;
+.action .button:hover {
+  background-color: #ffdff6;
+}
+.action .button a {
+  width: 100%;
+  position: relative;
+  display: block;
+  transition: 0.3s ease-out;
+}
+.action .button a:hover {
+  background-color: #ffdff6;
+}
+.action .button a:hover:before {
+  transform: rotate(360deg);
+}
+.action .button a:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -30px;
+  width: 30px;
+  height: 30px;
   background-color: #9356DC;
+  border: 1px solid #9356DC;
+  border-radius: 50%;
   color: white;
-  margin-left: -40px;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.3s ease out;
 }
 
 footer {
   width: 100%;
   font-family: "Roboto";
-  background-color: #aeaeae;
+  background-color: #484848;
   padding: 20px 0px 20px 15px;
   margin-top: 30px;
   margin-left: auto;
