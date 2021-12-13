@@ -21,29 +21,27 @@
                     <a href="index.html" class="go-back-button"> Ohmyfood <!--retournez à la page d'accueil!pour les autres pages"--></a>
                 </div>
             </div>
-            <div class="header__location-panel">
-                <form class="search-form" method="post" action="traitement.php">
-                    <p>
-                        <input type="search" name="search" id="search-input" value="" placeholder="Paris, Belleville"/>
-                        <label for="search-input"></label>
-                        <input type="image" src="url*.jpg" id="search-button"/>
-                    </p>
-                </form>
-            </div>
-            <h1 class="header__title">Réservez le menu qui vous convient!</h1>
-            <h2 class="header__subtitle">Découvrez des restaurants d'exception, séléctionnés par nos soins.</h2>
-            <div class="button list_restaurants">
-                <a href="#">Explorez nos restaurants</a>
-            </div>
+            <form method="post" action="traitement.php">
+                <div class="search-line"><span class="icon"><i class="fas fa-map-marker-alt"></i></span><input type="search" name="search" id="search" required value="" onchange="" placeholder="Paris, Belleville"/>
+                </div>
+                        <!--<label for="search-input"></label>
+                        <input type="image" src="url*.jpg" id="search-button"/>-->
+                <div class="text">
+                <h1 >Réservez le menu qui vous convient!</h1>
+                <h2>Découvrez des restaurants d'exception, séléctionnés par nos soins.</h2>
+                </div>
+                    <!--<label for="search" class="button list_restaurants">Explorez nos restaurants</label> -->
+                <button type="submit" class="button list_restaurants">Explorez nos restaurants</button>
+            </form>
         </header>
         <section>
             <div class="action">
                 <p>Fonctionnement</p>
-            <ol>
-                <li class="button"><a href="#"><span class="icon"><i class="fas fa-mobile-alt"></i></span>Choisissez un restaurant</a></li>
-                <li class="button"><a href="#"><span class="icon"><i class="fas fa-list-ul"></i></span>Composez votre menu</a></li>
-                <li class="button"><a href="#"><span class="icon"><i class="fas fa-store"></i></span>Dégustez au restaurant</a></li>
-            </ol>
+                <ol>
+                    <li class="button"><a href="#"><span class="icon"><i class="fas fa-mobile-alt"></i></span>Choisissez un restaurant</a></li>
+                    <li class="button"><a href="#"><span class="icon"><i class="fas fa-list-ul"></i></span>Composez votre menu</a></li>
+                    <li class="button"><a href="#"><span class="icon"><i class="fas fa-store"></i></span>Dégustez au restaurant</a></li>
+                </ol>
             </div>
             <div class="restaurants">
                 <a href="page2.html" >
@@ -51,7 +49,7 @@
                         <img class="card__image" src="images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt=""/> 
                         <h3 class="card__title">La palette du gout</h3> 
                         <h4 class="card__subtitle">Ménilmontant</h4> 
-                        <span class="icon icon-heart"><i class="far fa-heart"></i></span>
+                        <div class="icon icon-heart"><i class="far fa-heart"></i></div>
                     </div>
                 </a>
             </div>
@@ -59,10 +57,10 @@
         <footer>
             <h5>Ohmyfood</h5>
             <ul>
-                <li><span class="icon"><i class="fas fa-utensils"></i></span>Proposer un restaurant</li>
-                <li><span class="icon"><i class="fas fa-hands-helping"></i></span>Devenir partenaire</li>
-                <li>Mentions légales</li>
-                <li>Contact</li>
+                <li><a href="#"><span class="icon"><i class="fas fa-utensils"></i></span>Proposer un restaurant</a></li>
+                <li><a href="#"><span class="icon"><i class="fas fa-hands-helping"></i></span>Devenir partenaire</a></li>
+                <li><a href="#">Mentions légale</a></li>
+                <li><a href="mailto:ohmyfood@gmail.com" target="_blank">Contact</a></li>
             </ul>
         </footer>
     </body>

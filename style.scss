@@ -5,8 +5,8 @@
 {
     font-family: 'Roboto', 'Shrikhand', sans-serif;
     padding:0;
-    margin-left:0 auto;
-    margin-right: 0 auto;
+    margin-left:0;
+    margin-right:0;
     box-sizing:border-box;
 }
 body
@@ -29,12 +29,18 @@ $ft-color: darken($nav-color, 50%);
 
 /* MIXIN */
 @mixin flexcol(){
+    /*display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;*/
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 @mixin flexrow(){
+    /*display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;*/
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -44,37 +50,7 @@ $ft-color: darken($nav-color, 50%);
 
 /* PLACE-HOLDERS */
 
-header {
-	@include flexcol();
-    background-color: $bg-color;
-    padding-bottom: 50px;
 
-    &__location-panel{
-    width:100%;
-    }
-    &__title{
-    font-family: 'Roboto';
-    font-size: 35px;
-    font-weight:300;
-    }
-    &__subtitle{
-    font-family: 'Roboto';
-    font-size: 28px;
-    font-weight:100;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    }
-}
-a {
-	text-decoration: none;
-    font-weight: bold;
-}
-.form {
-	width: 100%;
-	padding: 10px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
 .topbar
 {
     width:100%;
@@ -90,6 +66,83 @@ a {
         color:black;
     }
 }
+header 
+{
+	@include flexcol();
+    background-color: $bg-color;
+    padding-bottom: 50px;
+
+    form 
+    {
+        font-family: 'Roboto';
+        width: 100%;
+        padding: 0px;
+        margin-bottom: 30px;
+        @include flexcol();
+    }
+    .button
+    {
+        cursor:pointer;
+        transition: .3s ease-out;
+
+        &:hover{
+            background-color: lighten($secondary-color, 20%);    
+        }
+    }
+    a 
+    {
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .text
+    {
+        width:100%;
+        text-align: center;
+    h1
+        {
+        font-family: 'Roboto';
+        font-size: 35px;
+        font-weight:300;
+        }
+        h2
+        {
+        font-family: 'Roboto';
+        font-size: 28px;
+        font-weight:100;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        }
+    }
+}
+.search-line
+{
+    width:100%;
+    @include flexrow;
+    flex-wrap: nowrap;
+    background-color: $nav-color;
+    border-top: 4px solid darken($nav-color, 20%);
+
+    .icon
+    {
+        color: black;
+        font-size: 26px;
+    }
+}
+input#search
+{
+    width:100%;
+    height:50px;
+    background-color: $nav-color;
+    font-size: 25px;
+    padding: 10px 0;
+    border: none;
+    
+    &:focus
+    {
+    outline: 0;
+    }
+}
+
 section
 {
     width:100%;
@@ -98,45 +151,15 @@ section
     background-color: $bg-color;
     @include flexcol();
 
-    a{
+    a
+    {
         color:black;
+        text-decoration: none;
     }
 }
 
-.card {
-	width: 90%;
-	height: auto;
-	@include flexcol();
-    align-items: flex-start;
-    justify-content: flex-start;
-    border-radius: 25px;
-    background-color: #ffff;
-    position:relative;
-    
-    &__image {
-    width:100%;
-    height: 350px;
-	object-fit: cover;
-	overflow: hidden;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    }
-    
-    &__title {
-	font-family: 'Roboto';
-	font-weight: bold;
-	font-size: 25px;
-    padding-left: 15px;
-    }
-    &__subtitle{
-    font-family: 'Roboto';
-    font-weight: 100;
-    font-size: 26px;
-    padding-left: 15px;
-    }
-}
-
-.button {
+.button 
+{
     width: fit-content;
     padding: 15px;
 	background-color: $bg-color;
@@ -153,36 +176,48 @@ section
     font-size: 45px;
 	font-weight: bold;
 }
-.list_restaurants {
+.list_restaurants 
+{
 	border: 1px solid $primary-color;
     background-image: linear-gradient($secondary-color,$primary-color);
     border-radius: 30px;
     color: white;
     line-height: 20px;
     margin-top: 20px;
-    
-    a{
+   
+    a
+    {
         color:#ffff;
     }
 }
 
 /* LES ICONES */
-.icon{
+.icon
+{
     padding-right: 15px;
     padding-left: 15px;
     color:$nav-color;
     transition: .3s ease-out;
     
+    &:hover
+    {
+        color: $primary-color;
+    }
+}
+.icon-heart
+{
+   /* position: absolute;
+    bottom: 25px;
+    right:25px;*/
+    font-size: 28px;
+    cursor: pointer;
+    transition: color .25s ease-out;
+
     &:hover{
         color: $primary-color;
     }
 }
-.icon-heart{
-    position: absolute;
-    bottom: 25px;
-    right:25px;
-    font-size: 28px;
-}
+
 /* SECTION */
 .action
 {
@@ -192,20 +227,23 @@ section
     margin-bottom: 40px;
     background-color: white;
     @include flexcol;
-    
-    ol{
+   
+    ol
+    {
         width:90%;
         @include flexcol();
         list-style-type: none;
         counter-reset:li;
     }
 
-    p{
+    p
+    {
         font-weight: bold;
         font-size: 30px;
     }
     
-    li{
+    li
+    {
         display:flex;
         width:90%;
         max-width: 450px;
@@ -215,26 +253,31 @@ section
     /* A PENSER POUR LES AUTRES SECTIONS */
     .button 
     {
-    text-shadow:0 1px 0 grey;
-    transition: .3s ease-out;
+        text-shadow:0 1px 0 grey;
+        transition: .3s ease-out;
 
-    &:hover{
-        background-color: lighten($secondary-color, 20%);    
+        &:hover
+        {
+            background-color: lighten($secondary-color, 20%);    
+        }
     }
-    
-    a{
+    a
+    {
         width:100%;
         position: relative;
         display:block;
         transition: .3s ease-out;
 
-        &:hover{
+        &:hover
+        {
             background-color: lighten($secondary-color, 20%);
         }
-        &:hover:before{
+        &:hover:before
+        {
             transform: rotate(360deg);
         }
-        &:before{
+        &:before
+        {
             content: counter(li);
             counter-increment: li;
             position:absolute;
@@ -248,11 +291,54 @@ section
             text-align: center;
             font-weight: bold;
             transition: all .3s ease out;
-            }
         }
     }
 }
-footer {
+.restaurants
+{
+    @include flexcol();
+    
+    @media (min-width:600px)
+        { 
+        @include flexrow();
+        }
+    .card
+    {
+        width: 90%;
+        max-width: 450px;
+        height: auto;
+        border-radius: 25px;
+        background-color: #ffff;
+        /*position:relative;*/
+
+        &__image 
+        {
+            width:100%;
+            height: 350px;
+            object-fit: cover;
+            overflow: hidden;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+        }
+        
+        &__title
+        {
+            font-family: 'Roboto';
+            font-weight: bold;
+            font-size: 25px;
+            padding-left: 15px;
+        }
+        &__subtitle
+        {
+            font-family: 'Roboto';
+            font-weight: 100;
+            font-size: 26px;
+            padding-left: 15px;
+        }
+    }
+}
+footer
+{
 	width: 100%;
 	font-family: 'Roboto';
 	background-color: $ft-color;
@@ -260,28 +346,45 @@ footer {
 	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
+
+    a
+    {
+        text-decoration: none;
+        color:#ffff;
+        transition: .3s ease-out;
     
-    .icon{
+        &:hover
+        {
+            color: $primary-color;
+        }
+    }
+      
+    .icon
+    {
         padding-left: 0;
         color:#ffff;
-        }
-    h5{
+    }
+    h5
+    {
         font-family: 'Shrikhand';
         font-size: 25px;
         color:#ffff;
-        }
-	ul {
+    }
+	ul 
+    {
 		list-style-type: none;
         @include flexcol();
         align-items: flex-start;
         
-		li {
+		li
+        {
 			border: none;
 			font-size: 20px;
             font-weight: bold;
             color:white;
 			padding-bottom: 20px;
 			@include flexrow()
-            }
-	    }
-    }
+            
+        }
+	}
+}
