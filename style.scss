@@ -12,10 +12,10 @@
 body
 {
     width:100%;
-    
+      
 }
 
-/* LES VARIABLES COULEURS */
+/* VARIABLES COULEURS */
 $primary-color: #9356DC;
 $secondary-color: #FF79DA;
 $third-color: #99E2D0;
@@ -29,18 +29,14 @@ $ft-color: darken($nav-color, 50%);
 
 /* MIXIN */
 @mixin flexcol(){
-    /*display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;*/
+    
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 @mixin flexrow(){
-    /*display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;*/
+    
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -87,7 +83,7 @@ $ft-color: darken($nav-color, 50%);
         border-top-color: #9356DC;
         border-radius: 50%;
         animation: spinnerOne 1.5s linear;
-        animation-iteration-count: 2;
+        animation-iteration-count: 1;
         animation-fill-mode: forwards;
     }
     div:nth-child(2)
@@ -95,7 +91,7 @@ $ft-color: darken($nav-color, 50%);
         border: 10px solid transparent;
         border-bottom-color: #9356DC;
         animation: spinnerTwo 1.5s linear;
-        animation-iteration-count: 2;
+        animation-iteration-count: 1;
         animation-fill-mode: forwards;
     }
 }
@@ -153,15 +149,7 @@ header
         margin-bottom: 30px;
         @include flexcol();
     }
-    /*.button
-    {
-        cursor:pointer;
-        transition: .3s ease-out;
-
-        &:hover{
-            background-color: lighten($secondary-color, 20%);    
-        }
-    }*/
+    
     a 
     {
         text-decoration: none;
@@ -199,16 +187,18 @@ header
     .icon
     {
         color: black;
-        font-size: 26px;
+        font-size: 20px;
+        padding-left: 70px;
     }
 }
 input#search
 {
-    width:100%;
+    /*width:100%;*/
     height:50px;
     background-color: $nav-color;
     font-size: 25px;
     padding: 10px 0;
+    margin-left: 15px;
     border: none;
     
     &:focus
@@ -220,8 +210,8 @@ input#search
 section
 {
     width:100%;
-    padding-top:50px;
-    padding-bottom: 50px;
+    /*padding-top:50px;
+    padding-bottom: 50px;*/
     background-color: $bg-color;
     @include flexcol();
 
@@ -294,8 +284,8 @@ section
 {
     width:100%;
     font: 20px "Roboto";
-    padding:0;
-    margin-bottom: 40px;
+    padding:40px 0;
+    /*margin-bottom: 20px;*/
     background-color: white;
     @include flexcol;
    
@@ -310,7 +300,9 @@ section
     p
     {
         font-weight: bold;
-        font-size: 30px;
+        font-size: 28px;
+        margin:0;
+        background-color: #fff;
     }
     
     li
@@ -365,94 +357,134 @@ section
         }
     }
 }
+p{
+    font-family: 'Roboto';
+    font-size: 28px;
+    font-weight: bold;
+    margin:0;
+    padding-top:20px;
+    background-color: $bg-color;
+    
+}
 .restaurants
 {
     width:100%;
-    @include flexcol();
-    
-    @media (min-width:600px)
-        { 
-        @include flexrow();
-        }
+    /*@include flexcol();
+    padding: 30px 0;
+    align-items: space-around;*/
        
-    .card
+    @media (min-width:375px)
+    { 
+        @include flexrow();
+        justify-content: space-around;
+    }
+    
+    .clickable_card
     {
         width: 90%;
-        max-width: 450px;
+        max-width: 375px;
+        padding-top: 20px;
+    }
+    .card
+    {
+        width: 100%;
         border-radius: 25px;
         background-color: #ffff;
+        box-shadow: 2px 6px 10px $nav-color;
+        overflow:hidden;
         @include flexrow();
-        flex-wrap: wrap;
+        position: relative;
         
         &__image 
         {
             width:100%;
-            height: 350px;
+            height: 175px;
             object-fit: cover;
             overflow: hidden;
             border-top-left-radius: 25px;
             border-top-right-radius: 25px;
         }
+
+        &__label{
+            width:90px;
+            height:30px;
+            font-family: 'Roboto';
+            font-weight: bold;
+            font-size: 20px;
+            position: absolute;
+            right:15px;
+            top:15px;
+            display: inline-block;
+            padding: 5px;
+            background-color: #6ee2c5;
+            color: #038f6c;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        &__description
+        {
+            width:70%;
+            height: fit-content;
+            font-family: 'Roboto';
+            padding:20px;
+            margin:0 auto;
+            line-height: 1.5;
+                h3{
+                    font-weight: bold;
+                    font-size: 22px;
+                    margin:0 auto;
+                }
+                    
+                h4{
+                    font-weight: 100;
+                    font-size: 24px;
+                    margin:0 auto;
+                }
+            }
         .icon-heart
         {
             width:20%;
-            @include flexcol;
-            align-items: center;
+            @include flexrow();
             position:relative;
         }
-        
     }
 }
-
+/* ICONE POUR .ICON-HEART */
 .far.fa-heart
 {
-    display:inline-block;
-    height:16px;
-    width:16px;
+    display:flex;
+    height:32px;
+    width:32px;
+    font-size: 25px;
     background-color:transparent;
-    color:gray;
+    color:$nav-color;
     font-weight: normal;
     border-radius: 50%;
     padding:2px;
     position: absolute;
+    justify-content: center;
+    align-items: center;
+    opacity:1;
+    /*&:hover{
+        
+    }*/
         
     &::before{
         content:"\f004";
-        transition: color 4s ease-out;
+        transition: color 4s ease-out; 
+               
     }
     
     &:hover::before{ 
         color:$secondary-color;
         font-weight: bold;
+        opacity:1;
         cursor: pointer;
+        
     }
 }
  
-.card-description
-
-{
-    width:70%;
-    font-family: 'Roboto';
-    padding:0 0 0 15px;
-    margin:0;
-
-    
-    &__title h3
-    {
-        font-weight: bold;
-        padding:0;
-        margin: 0;
-        font-size: 25px;
-    }
-    &__subtitle h4
-    {
-        font-weight: 100;
-        font-size: 26px;
-        padding:0;
-        margin: 0;
-    }
-}
-
 footer
 {
 	width: 100%;
@@ -488,9 +520,14 @@ footer
     }
 	ul 
     {
-		list-style-type: none;
+        @include flexrow();
+        justify-content: space-around;
+        list-style-type: none;
+
+        @media (max-width:375px)
+        {
         @include flexcol();
-        align-items: flex-start;
+        align-items: flex-start;}
         
 		li
         {
