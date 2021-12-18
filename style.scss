@@ -12,7 +12,6 @@
 body
 {
     width:100%;
-      
 }
 
 /* VARIABLES COULEURS */
@@ -46,23 +45,120 @@ $ft-color: darken($nav-color, 50%);
 
 /* PLACE-HOLDERS */
 
-/* POUR LE SPINNER */
+/*spinner 2 POUR LA PAGE D'ACCUEIL*/
+
+.loader-container {
+    background-color: $secondary-color;
+    margin: 0;
+    padding:0;
+    font-size: 0;
+    font-size: 30px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: inline-block;
+    text-align: center;
+    overflow:hidden;
+    /*z-index:9;
+    /*border: 1px solid #ccc;
+    border-collapse: collapse;*/
+    vertical-align: top;
+    opacity:1;
+    animation-name: slide-top;
+    animation-duration: 2s;
+    animation-timing-function:  ease-out;
+    animation-delay: 3s; 
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes slide-top
+  {
+    from{
+        height: 100%; opacity:1; visibility: visible;
+
+    }
+    to{
+        height:0; opacity:0; visibility: hidden;
+
+    }
+    
+  }
+  .loader-1 {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    margin: -25px auto 0;
+    border-radius: 50%;
+    background: #ffffff;
+    background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 50%);
+    position: relative;
+    animation: loader-1 1.5s infinite linear;
+    transform: translateZ(0);
+   
+  &::before {
+    content: '';
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    border-radius: 100% 0 0 0;
+  }
+  
+  &::after {
+    content: '';
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: $secondary-color;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+  @keyframes loader-1 {
+    0% {
+      
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+/* POUR LE SPINNER 
 .loader
 {
     width: 100%;
     height:100vh;
     display:flex;
     justify-content: space-around;
-    background-color: $bg-color;
+    overflow:hidden;
+    background-color: rgb(147, 147, 192);
     position: relative;
-    animation: loader 2s ease;
-    display:none;
+    opacity:0;
+
+    animation: loader 3s ease-out 1s;
+    /*opacity:0;
+    
 }
+
 @keyframes loader{
 0%{
+    
+    
     visibility: visible;
+    
 }
 100%{
+    
+    
     visibility: hidden;
 }
 }
@@ -71,8 +167,8 @@ $ft-color: darken($nav-color, 50%);
     width:200px;
     height:200px;
     position: absolute;
-    
-    
+    margin-top: 100px;
+        
     div
     {
         box-sizing: border-box;
@@ -82,20 +178,20 @@ $ft-color: darken($nav-color, 50%);
         border: 8px solid transparent;
         border-top-color: #9356DC;
         border-radius: 50%;
-        animation: spinnerOne 1.5s linear;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;
+        animation: spinnerOne 3s linear;
+        /*animation-iteration-count: 1;
+        animation-fill-mode:forwards;
     }
     div:nth-child(2)
     {
         border: 10px solid transparent;
         border-bottom-color: #9356DC;
-        animation: spinnerTwo 1.5s linear;
-        animation-iteration-count: 1;
+        animation: spinnerTwo 5s linear;
+        /*animation-iteration-count: 1;
         animation-fill-mode: forwards;
     }
-}
-/* KEYFRAMES */
+}*/
+/* KEYFRAMES 
 @keyframes spinnerOne
 {
     0%{
@@ -119,20 +215,49 @@ $ft-color: darken($nav-color, 50%);
     100%{
         transform: rotate(360deg); border-width: 1px;
     }
-}
-
+}*/
+/* POUR TOUTES LES PAGES */
 .topbar
 {
     width:100%;
+    height:100px;
     background-color: #ffff;
     @include flexrow();
+    position:relative;
     
     &__logo{
-    padding-top: 30px;
-    padding-bottom: 20px;
+    height: fit-content;
+    padding:20px 10;
     }
+    
     a{
+        text-decoration: none;
+        
+    }
+    go-back-button{
+        
+        width:100%;
+        display:flex;
+        visibility: hidden;
+        align-items: center;
+    }
+    p{
+        font-family: 'Shrikhand';
+        font-size: 40px;
+        background-color: inherit;
         color:black;
+        padding:0;
+        margin:0;
+    }
+    /* POUR LES PAGES DE RESTAURANTS*/
+    .icon{
+        color: black;
+        position: absolute;
+        left:0px;
+        top:calc(50%-0px);
+        font-size: 30px;
+        font-weight: bold;
+        display:flex;
     }
 }
 header 
@@ -140,7 +265,7 @@ header
 	@include flexcol();
     background-color: $bg-color;
     padding-bottom: 50px;
-/* FORMULAIRE DE RECHERCHE */
+/* FORMULAIRE DE RECHERCHE POUR LA PAGE INDEX.HTML*/
     form 
     {
         font-family: 'Roboto';
@@ -150,10 +275,9 @@ header
         @include flexcol();
     }
     
-    a 
+    /*a 
     {
         text-decoration: none;
-        font-weight: bold;
     }
     /* DANS LA NAVIG */
     .text
@@ -206,7 +330,26 @@ input#search
     outline: 0;
     }
 }
+/* HEADER PAGE 2 */
+header {
 
+    .bcg-image
+    {
+        width:100%;
+        /*max-width: 650px;*/
+        height:400px;
+        object-fit: cover;
+        overflow: hidden;
+
+        image{
+            width:100%;
+            object-fit: cover;
+            overflow: hidden;
+            
+        }
+    }
+}
+/* PAGE INDEX.HTML */
 section
 {
     width:100%;
@@ -278,6 +421,17 @@ section
         color: $primary-color;
     }
 }
+/* POUR LA PAGE2.HTML - POUR LES BOUTONS */
+.block-animation {
+    width: 130px;
+    height: 130px;
+    background-color: #2196F3;
+transition: width 1s cubic-bezier(0, 0, 1, 1) 500ms;
+  }
+  
+  .block-animation:hover {
+    width: 230px;
+  }
 
 /* SECTION FONCTIONNEMENT */
 .action
@@ -484,7 +638,7 @@ p{
         
     }
 }
- 
+ /* POUR TOUTES LES PAGES */
 footer
 {
 	width: 100%;
