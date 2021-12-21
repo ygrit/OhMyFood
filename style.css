@@ -31,9 +31,6 @@ body {
   display: inline-block;
   text-align: center;
   overflow: hidden;
-  /*z-index:9;
-  /*border: 1px solid #ccc;
-  border-collapse: collapse;*/
   vertical-align: top;
   opacity: 1;
   -webkit-animation-name: slide-top;
@@ -56,6 +53,8 @@ body {
   }
   to {
     height: 0;
+    margin: 0;
+    padding: 0;
     opacity: 0;
     visibility: hidden;
   }
@@ -69,6 +68,8 @@ body {
   }
   to {
     height: 0;
+    margin: 0;
+    padding: 0;
     opacity: 0;
     visibility: hidden;
   }
@@ -128,67 +129,8 @@ body {
     transform: rotate(360deg);
   }
 }
-/* POUR LE SPINNER 
-.loader
-{
-    width: 100%;
-    height:100vh;
-    display:flex;
-    justify-content: space-around;
-    overflow:hidden;
-    background-color: rgb(147, 147, 192);
-    position: relative;
-    opacity:0;
-
-    animation: loader 3s ease-out 1s;
-    /*opacity:0;
-
-}
-
-@keyframes loader{
-0%{
-
-
-    visibility: visible;
-
-}
-100%{
-
-
-    visibility: hidden;
-}
-}
-.spinner
-{
-    width:200px;
-    height:200px;
-    position: absolute;
-    margin-top: 100px;
-
-    div
-    {
-        box-sizing: border-box;
-        position: absolute;
-        width:100%;
-        height:100%;
-        border: 8px solid transparent;
-        border-top-color: #9356DC;
-        border-radius: 50%;
-        animation: spinnerOne 3s linear;
-        /*animation-iteration-count: 1;
-        animation-fill-mode:forwards;
-    }
-    div:nth-child(2)
-    {
-        border: 10px solid transparent;
-        border-bottom-color: #9356DC;
-        animation: spinnerTwo 5s linear;
-        /*animation-iteration-count: 1;
-        animation-fill-mode: forwards;
-    }
-}*/
 /* KEYFRAMES 
-@keyframes spinnerOne
+@keyframes rotation
 {
     0%{
         transform: rotate(0deg); border-width: 10px;
@@ -200,18 +142,6 @@ body {
         transform: rotate(360deg); border-width: 10px;
     }
 }
-@keyframes spinnerTwo
-{
-    0%{
-        transform: rotate(0deg); border-width: 1px;
-    }
-    50%{
-        transform: rotate(180deg); border-width: 10px;
-    }
-    100%{
-        transform: rotate(360deg); border-width: 1px;
-    }
-}*/
 /* POUR TOUTES LES PAGES */
 .topbar {
   width: 100%;
@@ -229,7 +159,7 @@ body {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  padding: 20px 10;
+  padding: 20px 10px;
 }
 .topbar a {
   text-decoration: none;
@@ -252,7 +182,7 @@ body {
   color: black;
   position: absolute;
   left: 0px;
-  top: calc(50%-0px);
+  top: calc(50%);
   font-size: 30px;
   font-weight: bold;
   display: flex;
@@ -460,7 +390,7 @@ section a {
 
 .meal.button {
   background-color: #fff;
-  width: 100%;
+  width: 350px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -479,7 +409,7 @@ section a {
   justify-content: flex-start;
   flex-wrap: nowrap;
   overflow: hidden;
-  width: 100%;
+  width: 130%;
   height: 90px;
   position: absolute;
   left: 0;
@@ -487,34 +417,62 @@ section a {
   transition: all 1s cubic-bezier(0, 0, 1, 1) 500ms;
 }
 .meal.button .content:hover {
-  width: 250px;
+  width: 350px;
   height: 90px;
 }
 .meal.button .content .txt {
-  width: 60%;
+  width: 75%;
   min-width: 200px;
+  padding-left: 10px;
+  /* position: absolute;*/
 }
-.meal.button .content .points {
-  width: 50px;
-  opacity: 1;
-  transition: opacity 1s linear;
-}
-.meal.button .content .points:hover {
-  opacity: 0;
+.meal.button .content .txt:hover {
+  width: 40%;
 }
 .meal.button .content .price {
-  width: 50px;
+  width: 25%;
+  padding: 0px 20px;
   font-weight: bold;
+  position: relative;
+  transition: all 1s cubic-bezier(0, 0, 1, 1) 500ms;
+  /* A TRAVAILLER */
+}
+.meal.button .content .price:hover {
+  width: 80px;
+}
+.meal.button .content .price:before {
+  content: "...";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 10%;
+  opacity: 0;
+  transition: 0.2s ease-out;
+}
+.meal.button .content .price:before:hover:before {
+  opacity: 1;
+  width: 10%;
 }
 .meal.button .content .blue {
-  width: 90px;
-  height: 100%;
-  background-color: aqua;
-  font: #ffff;
+  width: 25%;
+  min-width: 100px;
+  height: 100px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #99E2D0;
+  font: white;
+  /*transition: all 1s cubic-bezier(0, 0, 1, 1) 500ms;*/
 }
-.meal.button .content .blue:hover {
-  opacity: 1;
+.meal.button .content .blue .fas.fa-check-circle {
+  color: white;
+  background-color: #99E2D0;
+  border-radius: 50%;
+  font-size: 30px;
+  transition: transform 1s linear;
+}
+.meal.button .content .blue .fas.fa-check-circle:hover {
+  transform: rotate(360deg);
 }
 
 /* SECTION FONCTIONNEMENT */
@@ -684,6 +642,11 @@ p {
   position: relative;
 }
 
+/* ICONE POUR .ICON-HEART 
+<svg class="heart" viewBox="0 0 32 29.6">
+  <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+	c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+</svg> */
 /* ICONE POUR .ICON-HEART */
 .far.fa-heart {
   display: flex;
@@ -699,9 +662,9 @@ p {
   justify-content: center;
   align-items: center;
   opacity: 1;
-  /*&:hover{
-
-  }*/
+}
+.far.fa-heart:hover {
+  font-weight: bold;
 }
 .far.fa-heart::before {
   content: "";
@@ -709,11 +672,21 @@ p {
 }
 .far.fa-heart:hover::before {
   color: #FF79DA;
-  font-weight: bold;
-  opacity: 1;
   cursor: pointer;
 }
 
+/*@keyframes colorfill{ /*POUR HEART 
+    0%{
+        color:white;
+    }
+    50%{
+        color:$secondary-color;
+    }
+    100%{
+        color:$primary-color;
+    }
+
+}*/
 /* POUR TOUTES LES PAGES */
 footer {
   width: 100%;
