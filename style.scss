@@ -429,18 +429,19 @@ section
     left:0;
     top:0;
     cursor: pointer;
-    transition: width 1s cubic-bezier(0, 0, 1, 1); /*1s;*/
+    transition: all 1s cubic-bezier(0, 0, 1, 1); 
         &:hover
         {
             width:350px;
-            
-                /*.blue
-                {
-                    .fas.fa-check-circle
-                    {
-                    transform: rotate(360deg);
-                    }
-                }*/
+        
+        }
+        &:hover .points
+        {
+            opacity:1; 
+        }
+        &:hover .fas.fa-check-circle
+        {
+            transform: rotate(360deg);
         }
         .txt
         {
@@ -450,20 +451,12 @@ section
             display:inline;
             padding-left: 10px;
             overflow:hidden;
-            /*transition: width 2s cubic-bezier(0, 0, 1, 1);*/
-                            
-            /*  &:hover
-                {
-                    width:40%;
-                    
-                }*/
-                
+           
                 /*&:nth-child(1)
                 {
                     font-weight: bold;
                 }*/
         }
-    
         .price
         {
             width: 15%;
@@ -472,14 +465,8 @@ section
             font-weight: bold;
             @include flexrow();
             align-items: flex-end;
-            /*transition: width 1s cubic-bezier(0, 0, 1, 1) /*500ms;
-                &:hover
-                {
-                    width:40px;
-                }*/
         }
-
-        .points/*.points*/
+        .points
         {
             width:10%;
             height:100%;
@@ -490,10 +477,6 @@ section
             align-items: flex-end;
             opacity:0;
             transition: opacity .5s ease;
-            &:hover
-            {
-                opacity:1; /*width:25px;*/
-            }
         }
         .blue
         {
@@ -506,12 +489,7 @@ section
             justify-content: center;
             background-color: $third-color;
             font:white;
-            /*transition: all 1s cubic-bezier(0, 0, 1, 1);
-            /*transition: all 1s cubic-bezier(0, 0, 1, 1) 500ms;
-                &:hover
-                {
-                    width:40px;
-                }*/
+            
             .fas.fa-check-circle
             {
                 position:absolute;
@@ -520,11 +498,7 @@ section
                 border-radius: 50%;
                 font-size: 30px;
                 /*animation: rotation 2s ease-out 1s  forwards;*/
-                transition: transform 2s ease-in-out;
-                &:hover
-                {
-                    transform: rotate(360deg);
-                }
+                transition: transform .65s linear .5s;
             }
         }
     }
