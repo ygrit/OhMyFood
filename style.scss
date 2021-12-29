@@ -52,87 +52,87 @@ $ft-color: darken($nav-color, 50%);
     background-color: lighten($secondary-color, 10%);
     margin: 0;
     padding:0;
-    font-size: 0;
     font-size: 30px;
-    position: relative;
+    position: absolute;
     width: 100%;
-    height: 100vh;
-    display: inline-block;
+    height: 100%;
+    display: block;
     text-align: center;
-    overflow:hidden;
-    vertical-align: top;
+    overflow:hidden; 
     opacity:1;
+    z-index: 999;
     animation-name: slide-top;
     animation-duration: 1s;
-    animation-timing-function:  ease-out;
+    animation-timing-function: ease-out;
     animation-delay: 3s; 
     animation-fill-mode: forwards;
-  }
-  
-  @keyframes slide-top
-  {
-    from{
-        height: 100%; opacity:1; 
-
-    }
-    to{
-        height:0;  opacity:0; 
-
-    }
     
-  }
-  .loader-1 {
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    top: 50%;
-    margin: -25px auto 0;
-    border-radius: 50%;
-    background: #ffffff;
-    background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 50%);
-    position: relative;
-    animation: loader-1 3s forwards linear;
-    transform: translateZ(0);
-   
-    &::before {
-        content: '';
-        width: 75px;
-        height: 75px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: #ffffff;
-        border-radius: 100% 0 0 0;
-    }
-    
-    &::after {
-        content: '';
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        background: lighten($secondary-color, 10%);
-        margin: auto;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
+    @keyframes slide-top
+    {
+        from{
+            opacity:1; 
+
+        }
+        to{
+            opacity:0; 
+        }
     }
 
-    @keyframes loader-1 {
+    @keyframes loader-1
+    {
         0% {
-        
         transform: rotate(0deg);
         }
         99%{
-            transform: rotate(360deg); height:150px;opacity:.5;
+            transform: rotate(360deg); 
+            height:150px;opacity:.5;
         }
         100% {
-        height:0;opacity:0;
+            opacity:0;
         }
     }
-  }
-/* KEYFRAMES */
+  
+    .loader-1 {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: 50%;
+        left:50%;
+        margin-top: -25px;
+        border-radius: 50%;
+        background: #ffffff;
+        background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 50%);
+        animation: loader-1 3s forwards linear;
+        transform: translateZ(0);
+    
+        &::before {
+            content: '';
+            width: 75px;
+            height: 75px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #ffffff;
+            border-radius: 100% 0 0 0;
+        }
+        
+        &::after {
+            content: '';
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: lighten($secondary-color, 10%);
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+    }  
+}
+
+/* KEYFRAMES 
 @keyframes rotation
 {
     0%{
@@ -144,7 +144,7 @@ $ft-color: darken($nav-color, 50%);
     100%{
         transform: rotate(360deg); 
     }
-}
+}*/
 /* POUR TOUTES LES PAGES */
 .topbar
 {
@@ -152,7 +152,7 @@ $ft-color: darken($nav-color, 50%);
     height:100px;
     background-color: #ffff;
     @include flexrow();
-    position:relative;
+    /*position:relative;*/
     
     &__logo{
     height: fit-content;
@@ -183,7 +183,7 @@ $ft-color: darken($nav-color, 50%);
         color: black;
         position: absolute;
         left:0px;
-        top:calc(50%);
+        top:calc(50%-25px);
         font-size: 30px;
         font-weight: bold;
         display:flex;
@@ -351,17 +351,25 @@ section
     background-color: #fafafa;
     border-radius: 30px 30px 0 0;
     border: 2px solid white;
+    margin-bottom: 20px;
     .restr{
-        width:100%;
+        width:90%;
         border-radius: 30px 30px 0 0;
         @include flexrow();
         justify-content: space-around;
-        align-items: center;
+        align-items: flex-start;
+        padding-top: 30px;
         
         h3{
         font-family: 'Shrikhand';
-        font-size: 35px;
+        font-size: 1.75rem;
         width:fit-content;
+        display:flex;
+        padding:0;
+        margin:0;
+        }
+        .list_restaurants{
+            padding: 15px 40px;
         }
     }
 }
@@ -370,11 +378,16 @@ section
     width:100%;
     @include flexcol();
     justify-content: flex-start;
+    align-items: space-around;
+    /*padding-bottom: 40px;*/
+    padding-top: 10px;
     
     &__name
     {
         text-transform: uppercase;
-       /* pour l'animation s'il faut*/
+        align-self: flex-start;
+        padding-left: 20px;
+       /* pour l'animation s'il faut
         &:after {
             content: '';
             display: block;
@@ -384,13 +397,12 @@ section
             width: 80%;
             height: 4px;
             background: $third-color;
-            /*
+            
             transition: width 1s linear;
-                    
             &:after:hover {
             width:100%;
           }*/
-        }
+    
         hr{
             width: 40px;
             height: 3px;
@@ -402,7 +414,10 @@ section
     &__block
     {
         width:95%;
+        @include flexcol();
         justify-content: center;
+        align-items: center;
+        /*margin-bottom: 30px;*/
     }
 }
 
@@ -415,6 +430,7 @@ section
     height: 90px;
     position:relative;
     cursor: pointer;
+    margin-bottom: 20px;
 }
     
 .content
@@ -445,12 +461,14 @@ section
         }
         .txt
         {
-            width:75%;
+            width:80%;
             min-width:180px;
             height:60px;
             display:inline;
             padding-left: 10px;
             overflow:hidden;
+            font-size: 18px;
+            font-family: 'Roboto';
            
                 /*&:nth-child(1)
                 {
@@ -468,7 +486,7 @@ section
         }
         .points
         {
-            width:10%;
+            width:5%;
             height:100%;
             padding:20px 0;
             @include flexrow();
@@ -515,7 +533,7 @@ section
    
     ol
     {
-        width:90%;
+        width:95%;
         @include flexcol();
         list-style-type: none;
         counter-reset:li;
@@ -533,7 +551,7 @@ section
     {
         display:flex;
         width:90%;
-        max-width: 450px;
+        max-width: 350px;
         margin-top: 30px;
         
     }
@@ -594,15 +612,15 @@ p{
 .restaurants
 {
     width:100%;
-    /*@include flexcol();
-    padding: 30px 0;
-    align-items: space-around;*/
-       
-    @media (min-width:375px)
+    @include flexrow();
+    justify-content: space-around;
+    flex-wrap: wrap;
+           
+    /*@media (min-width:375px)
     { 
         @include flexrow();
         justify-content: space-around;
-    }
+    }*/
     
     .clickable_card
     {

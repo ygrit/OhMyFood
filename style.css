@@ -23,16 +23,15 @@ body {
   background-color: #fface8;
   margin: 0;
   padding: 0;
-  font-size: 0;
   font-size: 30px;
-  position: relative;
+  position: absolute;
   width: 100%;
-  height: 100vh;
-  display: inline-block;
+  height: 100%;
+  display: block;
   text-align: center;
   overflow: hidden;
-  vertical-align: top;
   opacity: 1;
+  z-index: 999;
   -webkit-animation-name: slide-top;
           animation-name: slide-top;
   -webkit-animation-duration: 1s;
@@ -44,64 +43,21 @@ body {
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
-
 @-webkit-keyframes slide-top {
   from {
-    height: 100%;
     opacity: 1;
   }
   to {
-    height: 0;
     opacity: 0;
   }
 }
-
 @keyframes slide-top {
   from {
-    height: 100%;
     opacity: 1;
   }
   to {
-    height: 0;
     opacity: 0;
   }
-}
-.loader-1 {
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  top: 50%;
-  margin: -25px auto 0;
-  border-radius: 50%;
-  background: #ffffff;
-  background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 50%);
-  position: relative;
-  -webkit-animation: loader-1 3s forwards linear;
-          animation: loader-1 3s forwards linear;
-  transform: translateZ(0);
-}
-.loader-1::before {
-  content: "";
-  width: 75px;
-  height: 75px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #ffffff;
-  border-radius: 100% 0 0 0;
-}
-.loader-1::after {
-  content: "";
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: #fface8;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
 }
 @-webkit-keyframes loader-1 {
   0% {
@@ -113,7 +69,6 @@ body {
     opacity: 0.5;
   }
   100% {
-    height: 0;
     opacity: 0;
   }
 }
@@ -127,34 +82,60 @@ body {
     opacity: 0.5;
   }
   100% {
-    height: 0;
     opacity: 0;
   }
 }
+.loader-container .loader-1 {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  border-radius: 50%;
+  background: #ffffff;
+  background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 50%);
+  -webkit-animation: loader-1 3s forwards linear;
+          animation: loader-1 3s forwards linear;
+  transform: translateZ(0);
+}
+.loader-container .loader-1::before {
+  content: "";
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  border-radius: 100% 0 0 0;
+}
+.loader-container .loader-1::after {
+  content: "";
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #fface8;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
 
-/* KEYFRAMES */
-@-webkit-keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+/* KEYFRAMES 
+@keyframes rotation
+{
+    0%{
+        transform: rotate(0deg); 
+    }
+    50%{
+        transform: rotate(180deg); 
+    }
+    100%{
+        transform: rotate(360deg); 
+    }
+}*/
 /* POUR TOUTES LES PAGES */
 .topbar {
   width: 100%;
@@ -165,7 +146,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  position: relative;
+  /*position:relative;*/
   /* POUR LES PAGES DE RESTAURANTS */
 }
 .topbar__logo {
@@ -195,7 +176,7 @@ body {
   color: black;
   position: absolute;
   left: 0px;
-  top: calc(50%);
+  top: calc(50%-25px);
   font-size: 30px;
   font-weight: bold;
   display: flex;
@@ -359,9 +340,10 @@ section a {
   background-color: #fafafa;
   border-radius: 30px 30px 0 0;
   border: 2px solid white;
+  margin-bottom: 20px;
 }
 .set-meal .restr {
-  width: 100%;
+  width: 90%;
   border-radius: 30px 30px 0 0;
   display: flex;
   flex-direction: row;
@@ -369,14 +351,21 @@ section a {
   justify-content: center;
   align-items: center;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 30px;
 }
 .set-meal .restr h3 {
   font-family: "Shrikhand";
-  font-size: 35px;
+  font-size: 1.75rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+.set-meal .restr .list_restaurants {
+  padding: 15px 40px;
 }
 
 .meals {
@@ -386,26 +375,29 @@ section a {
   align-items: center;
   justify-content: flex-start;
   justify-content: flex-start;
+  align-items: space-around;
+  /*padding-bottom: 40px;*/
+  padding-top: 10px;
 }
 .meals__name {
   text-transform: uppercase;
-  /* pour l'animation s'il faut*/
-}
-.meals__name:after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 80%;
-  height: 4px;
-  background: #99E2D0;
-  /*
-    transition: width 1s linear;
+  align-self: flex-start;
+  padding-left: 20px;
+  /* pour l'animation s'il faut
+   &:after {
+       content: '';
+       display: block;
+       position:absolute;
+       bottom:0;
+       left:0;
+       width: 80%;
+       height: 4px;
+       background: $third-color;
 
-    &:after:hover {
-    width:100%;
-  }*/
+       transition: width 1s linear;
+       &:after:hover {
+       width:100%;
+     }*/
 }
 .meals__name hr {
   width: 40px;
@@ -415,7 +407,13 @@ section a {
 }
 .meals__block {
   width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   justify-content: center;
+  align-items: center;
+  /*margin-bottom: 30px;*/
 }
 
 .meal.button {
@@ -430,6 +428,7 @@ section a {
   height: 90px;
   position: relative;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .content {
@@ -459,12 +458,14 @@ section a {
   transform: rotate(360deg);
 }
 .content .txt {
-  width: 75%;
+  width: 80%;
   min-width: 180px;
   height: 60px;
   display: inline;
   padding-left: 10px;
   overflow: hidden;
+  font-size: 18px;
+  font-family: "Roboto";
   /*&:nth-child(1)
   {
       font-weight: bold;
@@ -483,7 +484,7 @@ section a {
   align-items: flex-end;
 }
 .content .points {
-  width: 10%;
+  width: 5%;
   height: 100%;
   padding: 20px 0;
   display: flex;
@@ -532,7 +533,7 @@ section a {
   /* A PENSER POUR LES AUTRES SECTIONS */
 }
 .action ol {
-  width: 90%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -549,7 +550,7 @@ section a {
 .action li {
   display: flex;
   width: 90%;
-  max-width: 450px;
+  max-width: 350px;
   margin-top: 30px;
 }
 .action .button {
@@ -598,19 +599,18 @@ p {
 
 .restaurants {
   width: 100%;
-  /*@include flexcol();
-  padding: 30px 0;
-  align-items: space-around;*/
-}
-@media (min-width: 375px) {
-  .restaurants {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-around;
-  }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /*@media (min-width:375px)
+  { 
+      @include flexrow();
+      justify-content: space-around;
+  }*/
 }
 .restaurants .clickable_card {
   width: 90%;
