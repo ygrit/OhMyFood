@@ -49,6 +49,7 @@ body {
   }
   to {
     opacity: 0;
+    z-index: -1;
   }
 }
 @keyframes slide-top {
@@ -57,6 +58,7 @@ body {
   }
   to {
     opacity: 0;
+    z-index: -1;
   }
 }
 @-webkit-keyframes loader-1 {

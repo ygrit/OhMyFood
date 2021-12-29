@@ -75,6 +75,7 @@ $ft-color: darken($nav-color, 50%);
         }
         to{
             opacity:0; 
+            z-index: -1;
         }
     }
 
