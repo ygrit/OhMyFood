@@ -132,8 +132,8 @@ $ft-color: darken($nav-color, 50%);
     }  
 }
 
-/* KEYFRAMES 
-@keyframes rotation
+/* KEYFRAMES */
+/*@keyframes rotation
 {
     0%{
         transform: rotate(0deg); 
@@ -145,6 +145,17 @@ $ft-color: darken($nav-color, 50%);
         transform: rotate(360deg); 
     }
 }*/
+@keyframes fade{
+    0%{
+        opacity:0;
+    }
+    /*50%{
+        opacity:0.5;
+    }*/
+    100%{
+        opacity:1;
+    }
+}
 /* POUR TOUTES LES PAGES */
 .topbar
 {
@@ -317,7 +328,7 @@ section
     line-height: 20px;
     margin-top: 20px;
     font-weight: bold;
-
+    
     &:hover
     {
         opacity:.8;
@@ -352,6 +363,8 @@ section
     border-radius: 30px 30px 0 0;
     border: 2px solid white;
     margin-bottom: 20px;
+    padding-bottom:30px;
+
     .restr{
         width:90%;
         border-radius: 30px 30px 0 0;
@@ -381,7 +394,8 @@ section
     align-items: space-around;
     /*padding-bottom: 40px;*/
     padding-top: 10px;
-    
+
+        
     &__name
     {
         text-transform: uppercase;
@@ -402,6 +416,8 @@ section
             &:after:hover {
             width:100%;
           }*/
+          opacity:0;
+          animation: fade 1s ease-out forwards 1s;
     
         hr{
             width: 40px;
@@ -418,6 +434,9 @@ section
         justify-content: center;
         align-items: center;
         /*margin-bottom: 30px;*/
+
+        
+
     }
 }
 
@@ -431,7 +450,21 @@ section
     position:relative;
     cursor: pointer;
     margin-bottom: 20px;
+    opacity:0;
 }
+/* ANIMATION FADE D'APPARITION DES BOUTONS DES PLATS*/
+    .meal.button:nth-child(1)
+    {
+        animation: fade 1s ease-out forwards 1.4s;
+    }
+    .meal.button:nth-child(2) 
+    {
+        animation: fade 1s ease-out forwards 1.8s;
+    }
+    .meal.button:nth-child(3) 
+    {
+        animation: fade 1s ease-out forwards 2.2s;
+    }
     
 .content
 {
