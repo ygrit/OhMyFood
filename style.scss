@@ -46,7 +46,7 @@ $ft-color: darken($nav-color, 50%);
 
 /* PLACE-HOLDERS */
 
-/*spinner 2 POUR LA PAGE D'ACCUEIL*/
+/*LOADER POUR LA PAGE D'ACCUEIL*/
 
 .loader-container {
     background-color: lighten($secondary-color, 10%);
@@ -56,7 +56,7 @@ $ft-color: darken($nav-color, 50%);
     left:0;
     top:0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: block;
     text-align: center;
     overflow:hidden; 
@@ -106,7 +106,7 @@ $ft-color: darken($nav-color, 50%);
         border-radius: 50%;
         background: #ffffff;
         background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 50%);
-        animation: loader-1 3s forwards linear;
+        animation: loader-1 2.5s forwards linear;
         transform: translateZ(0);
     
         &::before {
@@ -229,6 +229,11 @@ header
         font-family: 'Roboto';
         font-size: 35px;
         font-weight:300;
+        @media (min-width:300px) and (max-width:450px)
+        {
+            font-size: 30px;
+        }
+
         }
         h2
         {
@@ -237,6 +242,11 @@ header
         font-weight:100;
         margin-top: 20px;
         margin-bottom: 30px;
+
+        @media (min-width:300px) and (max-width:450px)
+        {
+            font-size: 24px;
+        }
         }
     }
 }
@@ -357,7 +367,7 @@ section
         color: $primary-color;
     }
 }
-/* SECTION PAGE2.HTML - POUR LES BOUTONS */
+/* PAGES DES RESTAURANTS - POUR LES BOUTONS */
 
 .set-meal{
     width:100%;
@@ -379,14 +389,11 @@ section
         
         h3{
         font-family: 'Shrikhand';
-        font-size: 1.75rem;
+        font-size: 2rem;
         width:fit-content;
         display:flex;
         padding:0;
         margin:0;
-        }
-        .list_restaurants{
-            padding: 15px 40px;
         }
     }
 }
@@ -437,10 +444,17 @@ section
         @include flexcol();
         justify-content: center;
         align-items: center;
-        /*margin-bottom: 30px;*/
 
-        
-
+        @media (min-width:300px) and (max-width:360px)
+        {
+            width:98%;
+        }
+    }
+/* BOUTON COMMANDER */
+    .list_restaurants
+    {
+        width:200px;
+        padding: 15px 40px;
     }
 }
 
@@ -455,22 +469,27 @@ section
     cursor: pointer;
     margin-bottom: 20px;
     opacity:0;
+
+    @media (min-width:300px) and (max-width:360px)
+        {
+            width:300px;
+        }
 }
-/* ANIMATION FADE D'APPARITION DES BOUTONS DES PLATS*/
-    .meal.button:nth-child(1)
-    {
-        animation: fade 1s ease-out forwards 1.4s;
-    }
-    .meal.button:nth-child(2) 
-    {
-        animation: fade 1s ease-out forwards 1.8s;
-    }
-    .meal.button:nth-child(3) 
-    {
-        animation: fade 1s ease-out forwards 2.2s;
-    }
-    
-.content
+/* ANIMATION FADE D'APPARITION DES BOUTONS DES PLATS SUR LES PAGES DE RESTAURANTS*/
+.meal.button:nth-child(1)
+{
+    animation: fade 1s ease-out forwards 1.4s;
+}
+.meal.button:nth-child(2) 
+{
+    animation: fade 1s ease-out forwards 1.8s;
+}
+.meal.button:nth-child(3) 
+{
+    animation: fade 1s ease-out forwards 2.2s;
+}
+/* PAGES DE RESTAURANTS */
+.content 
 {
     @include flexrow();
     justify-content: flex-start;
@@ -486,7 +505,10 @@ section
         &:hover
         {
             width:350px;
-        
+            @media (min-width:300px) and (max-width:360px)
+            {
+            width:300px;
+            }
         }
         &:hover .points
         {
@@ -506,11 +528,10 @@ section
             overflow:hidden;
             font-size: 18px;
             font-family: 'Roboto';
-           
-                /*&:nth-child(1)
-                {
-                    font-weight: bold;
-                }*/
+            @media (min-width:300px) and (max-width:360px)
+            {
+            min-width:140px;
+            }
         }
         .price
         {
@@ -558,13 +579,12 @@ section
         }
     }
  
-/* SECTION FONCTIONNEMENT */
+/* SECTION FONCTIONNEMENT PAGE D'ACCUEIL*/
 .action
 {
     width:100%;
     font: 20px "Roboto";
     padding:40px 0;
-    /*margin-bottom: 20px;*/
     background-color: white;
     @include flexcol;
    
@@ -575,7 +595,7 @@ section
         list-style-type: none;
         counter-reset:li;
     }
-
+    
     p
     {
         font-weight: bold;
@@ -592,7 +612,7 @@ section
         margin-top: 30px;
         
     }
-    /* A PENSER POUR LES AUTRES SECTIONS */
+    /* BOUTON */
     .button 
     {
         text-shadow:0 1px 0 grey;
@@ -603,13 +623,20 @@ section
             background-color: lighten($secondary-color, 20%);
         }
     }
+    /* BOUTONS POUR LES PETITS ECRANS*/
+    @media (max-width:370px)
+        {
+            a{
+                font-size: 16px;
+            }
+        }
     a
     {
         width:100%;
         position: relative;
         display:block;
-        transition: all .3s ease-out;
-
+        transition: all 1.3s ease-out;
+        
         &:hover
         {
             background-color: lighten($secondary-color, 20%);
@@ -632,7 +659,7 @@ section
             color:white;
             text-align: center;
             font-weight: bold;
-            transition: all .3s ease out;
+            transition: all 2.3s ease out;
         }
     }
 }
@@ -646,6 +673,7 @@ p{
     background-color: $bg-color;
     
 }
+/* PAGE D'ACCUEIL - LES CARTES DES RESTAURANTS */
 .restaurants
 {
     width:100%;
@@ -653,17 +681,13 @@ p{
     justify-content: space-around;
     flex-wrap: wrap;
            
-    /*@media (min-width:375px)
-    { 
-        @include flexrow();
-        justify-content: space-around;
-    }*/
-    
     .clickable_card
     {
         width: 90%;
         max-width: 375px;
         padding-top: 20px;
+        padding-right: 5px;
+        padding-left: 5px;
     }
 
     .card
@@ -718,6 +742,11 @@ p{
                 font-weight: bold;
                 font-size: 22px;
                 margin:0 auto;
+
+                @media (min-width:300px) and (max-width:450px)
+                {
+                    font-size: 19px;
+                }
             }
                     
             h4
@@ -725,6 +754,11 @@ p{
                 font-weight: 100;
                 font-size: 24px;
                 margin:0 auto;
+
+                @media (min-width:300px) and (max-width:450px)
+                {
+                    font-size: 20px;
+                }
             }
         }
         .icon-heart
@@ -829,10 +863,12 @@ footer
         justify-content: space-around;
         list-style-type: none;
 
-        @media (max-width:375px)
+        /*RESPONSIVE POUR LES PETITS ECRANS*/
+        @media screen and (max-width:600px)
         {
-        @include flexcol();
-        align-items: flex-start;}
+            @include flexcol();
+            align-items: flex-start;
+        }
         
 		li
         {
@@ -841,6 +877,7 @@ footer
             font-weight: bold;
             color:white;
 			padding-bottom: 20px;
+            padding-right: 10px;
 			@include flexrow()
             
         }

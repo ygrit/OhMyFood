@@ -18,7 +18,7 @@ body {
 /* FUNCTION */
 /* MIXIN */
 /* PLACE-HOLDERS */
-/*spinner 2 POUR LA PAGE D'ACCUEIL*/
+/*LOADER POUR LA PAGE D'ACCUEIL*/
 .loader-container {
   background-color: #fface8;
   margin: 0;
@@ -27,7 +27,7 @@ body {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: block;
   text-align: center;
   overflow: hidden;
@@ -101,8 +101,8 @@ body {
   border-radius: 50%;
   background: #ffffff;
   background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 50%);
-  -webkit-animation: loader-1 3s forwards linear;
-          animation: loader-1 3s forwards linear;
+  -webkit-animation: loader-1 2.5s forwards linear;
+          animation: loader-1 2.5s forwards linear;
   transform: translateZ(0);
 }
 .loader-container .loader-1::before {
@@ -239,12 +239,22 @@ header .text h1 {
   font-size: 35px;
   font-weight: 300;
 }
+@media (min-width: 300px) and (max-width: 450px) {
+  header .text h1 {
+    font-size: 30px;
+  }
+}
 header .text h2 {
   font-family: "Roboto";
   font-size: 28px;
   font-weight: 100;
   margin-top: 20px;
   margin-bottom: 30px;
+}
+@media (min-width: 300px) and (max-width: 450px) {
+  header .text h2 {
+    font-size: 24px;
+  }
 }
 
 .search-line {
@@ -360,7 +370,7 @@ section a {
   color: #9356DC;
 }
 
-/* SECTION PAGE2.HTML - POUR LES BOUTONS */
+/* PAGES DES RESTAURANTS - POUR LES BOUTONS */
 .set-meal {
   width: 100%;
   max-width: 650px;
@@ -385,16 +395,13 @@ section a {
 }
 .set-meal .restr h3 {
   font-family: "Shrikhand";
-  font-size: 1.75rem;
+  font-size: 2rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   display: flex;
   padding: 0;
   margin: 0;
-}
-.set-meal .restr .list_restaurants {
-  padding: 15px 40px;
 }
 
 .meals {
@@ -407,6 +414,7 @@ section a {
   align-items: space-around;
   /*padding-bottom: 40px;*/
   padding-top: 10px;
+  /* BOUTON COMMANDER */
 }
 .meals__name {
   text-transform: uppercase;
@@ -445,7 +453,15 @@ section a {
   justify-content: flex-start;
   justify-content: center;
   align-items: center;
-  /*margin-bottom: 30px;*/
+}
+@media (min-width: 300px) and (max-width: 360px) {
+  .meals__block {
+    width: 98%;
+  }
+}
+.meals .list_restaurants {
+  width: 200px;
+  padding: 15px 40px;
 }
 
 .meal.button {
@@ -463,8 +479,13 @@ section a {
   margin-bottom: 20px;
   opacity: 0;
 }
+@media (min-width: 300px) and (max-width: 360px) {
+  .meal.button {
+    width: 300px;
+  }
+}
 
-/* ANIMATION FADE D'APPARITION DES BOUTONS DES PLATS*/
+/* ANIMATION FADE D'APPARITION DES BOUTONS DES PLATS SUR LES PAGES DE RESTAURANTS*/
 .meal.button:nth-child(1) {
   -webkit-animation: fade 1s ease-out forwards 1.4s;
           animation: fade 1s ease-out forwards 1.4s;
@@ -480,6 +501,7 @@ section a {
           animation: fade 1s ease-out forwards 2.2s;
 }
 
+/* PAGES DE RESTAURANTS */
 .content {
   display: flex;
   flex-direction: row;
@@ -500,6 +522,11 @@ section a {
 .content:hover {
   width: 350px;
 }
+@media (min-width: 300px) and (max-width: 360px) {
+  .content:hover {
+    width: 300px;
+  }
+}
 .content:hover .points {
   opacity: 1;
 }
@@ -515,10 +542,11 @@ section a {
   overflow: hidden;
   font-size: 18px;
   font-family: "Roboto";
-  /*&:nth-child(1)
-  {
-      font-weight: bold;
-  }*/
+}
+@media (min-width: 300px) and (max-width: 360px) {
+  .content .txt {
+    min-width: 140px;
+  }
 }
 .content .price {
   width: 15%;
@@ -568,18 +596,18 @@ section a {
   transition: transform 0.65s linear 0.5s;
 }
 
-/* SECTION FONCTIONNEMENT */
+/* SECTION FONCTIONNEMENT PAGE D'ACCUEIL*/
 .action {
   width: 100%;
   font: 20px "Roboto";
   padding: 40px 0;
-  /*margin-bottom: 20px;*/
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  /* A PENSER POUR LES AUTRES SECTIONS */
+  /* BOUTON */
+  /* BOUTONS POUR LES PETITS ECRANS*/
 }
 .action ol {
   width: 95%;
@@ -609,11 +637,16 @@ section a {
 .action .button:hover {
   background-color: #ffdff6;
 }
+@media (max-width: 370px) {
+  .action a {
+    font-size: 16px;
+  }
+}
 .action a {
   width: 100%;
   position: relative;
   display: block;
-  transition: all 0.3s ease-out;
+  transition: all 1.3s ease-out;
 }
 .action a:hover {
   background-color: #ffdff6;
@@ -634,7 +667,7 @@ section a {
   color: white;
   text-align: center;
   font-weight: bold;
-  transition: all 0.3s ease out;
+  transition: all 2.3s ease out;
 }
 
 p {
@@ -646,6 +679,7 @@ p {
   background-color: #f5f5f5;
 }
 
+/* PAGE D'ACCUEIL - LES CARTES DES RESTAURANTS */
 .restaurants {
   width: 100%;
   display: flex;
@@ -655,16 +689,13 @@ p {
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  /*@media (min-width:375px)
-  { 
-      @include flexrow();
-      justify-content: space-around;
-  }*/
 }
 .restaurants .clickable_card {
   width: 90%;
   max-width: 375px;
   padding-top: 20px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 .restaurants .card {
   width: 100%;
@@ -719,10 +750,20 @@ p {
   font-size: 22px;
   margin: 0 auto;
 }
+@media (min-width: 300px) and (max-width: 450px) {
+  .restaurants .card__description h3 {
+    font-size: 19px;
+  }
+}
 .restaurants .card__description h4 {
   font-weight: 100;
   font-size: 24px;
   margin: 0 auto;
+}
+@media (min-width: 300px) and (max-width: 450px) {
+  .restaurants .card__description h4 {
+    font-size: 20px;
+  }
 }
 .restaurants .card .icon-heart {
   width: 20%;
@@ -815,8 +856,9 @@ footer ul {
   align-items: center;
   justify-content: space-around;
   list-style-type: none;
+  /*RESPONSIVE POUR LES PETITS ECRANS*/
 }
-@media (max-width: 375px) {
+@media screen and (max-width: 600px) {
   footer ul {
     display: flex;
     flex-direction: column;
@@ -831,6 +873,7 @@ footer ul li {
   font-weight: bold;
   color: white;
   padding-bottom: 20px;
+  padding-right: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
