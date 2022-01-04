@@ -488,6 +488,11 @@ section
 {
     animation: fade 1s ease-out forwards 2.2s;
 }
+.meal.button:nth-child(4) 
+{
+    animation: fade 1s ease-out forwards 2.6s;
+}
+
 /* PAGES DE RESTAURANTS */
 .content 
 {
@@ -578,6 +583,7 @@ section
             }
         }
     }
+
  
 /* SECTION FONCTIONNEMENT PAGE D'ACCUEIL*/
 .action

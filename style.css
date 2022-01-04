@@ -501,6 +501,11 @@ section a {
           animation: fade 1s ease-out forwards 2.2s;
 }
 
+.meal.button:nth-child(4) {
+  -webkit-animation: fade 1s ease-out forwards 2.6s;
+          animation: fade 1s ease-out forwards 2.6s;
+}
+
 /* PAGES DE RESTAURANTS */
 .content {
   display: flex;
