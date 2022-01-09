@@ -23,10 +23,6 @@ $bg-color: #f5f5f5;
 $nav-color:darken($bg-color, 20%);
 $ft-color: darken($nav-color, 50%);
 
-
-/* FUNCTION */
-
-
 /* MIXIN */
 @mixin flexcol(){
     
@@ -43,8 +39,6 @@ $ft-color: darken($nav-color, 50%);
     justify-content: center;
     align-items: center;
 }
-
-/* PLACE-HOLDERS */
 
 /*LOADER POUR LA PAGE D'ACCUEIL*/
 
@@ -144,7 +138,7 @@ $ft-color: darken($nav-color, 50%);
         opacity:1;
     }
 }
-/* POUR TOUTES LES PAGES */
+/* LOGO POUR TOUTES LES PAGES */
 .topbar
 {
     width:100%;
@@ -202,7 +196,7 @@ header
         @include flexcol();
     }
     
-        /* DANS LA NAVIG */
+    /* DANS LA NAVIG */
     .text
     {
         width:100%;
@@ -355,7 +349,7 @@ section
         color: $primary-color;
     }
 }
-/* PAGES DES RESTAURANTS - POUR LES BOUTONS */
+/* PAGES DE RESTAURANTS */
 
 .set-meal{
     width:100%;
@@ -385,38 +379,20 @@ section
         }
     }
 }
-.meals /* NOMS DES PLATS ET LES BOUTONS-MENU */
+.meals /* NOMS DE PLATS ET LES BOUTONS-MENU */
 {
     width:100%;
     @include flexcol();
     justify-content: flex-start;
-    align-items: space-around;
-    /*padding-bottom: 40px;*/
     padding-top: 10px;
 
-        
     &__name
     {
         text-transform: uppercase;
         align-self: flex-start;
         padding-left: 20px;
-       /* pour l'animation s'il faut
-        &:after {
-            content: '';
-            display: block;
-            position:absolute;
-            bottom:0;
-            left:0;
-            width: 80%;
-            height: 4px;
-            background: $third-color;
-            
-            transition: width 1s linear;
-            &:after:hover {
-            width:100%;
-          }*/
-          opacity:0;
-          animation: fade 1s ease-out forwards 1s;
+        opacity:0;
+        animation: fade 1s ease-out forwards 1s;
     
         hr{
             width: 40px;
@@ -438,7 +414,7 @@ section
             width:98%;
         }
     }
-/* BOUTON COMMANDER */
+/* BOUTON "COMMANDER" */
     .list_restaurants
     {
         width:200px;
@@ -463,7 +439,7 @@ section
             width:300px;
         }
 }
-/* ANIMATION FADE D'APPARITION DES BOUTONS DES PLATS SUR LES PAGES DE RESTAURANTS*/
+/* ANIMATION FADE D'APPARITION DES BOUTONS DE PLATS SUR LES PAGES DE RESTAURANTS*/
 .meal.button:nth-child(1)
 {
     animation: fade 1s ease-out forwards 1.4s;
@@ -481,7 +457,7 @@ section
     animation: fade 1s ease-out forwards 2.6s;
 }
 
-/* PAGES DE RESTAURANTS */
+/* PAGES DE RESTAURANTS - BOUTON DE COMMANDE DE MENU */
 .content 
 {
     @include flexrow();
@@ -557,8 +533,7 @@ section
             align-items: center;
             justify-content: center;
             background-color: $third-color;
-            font:white;
-            
+                        
             .fas.fa-check-circle
             {
                 position:absolute;
@@ -653,7 +628,7 @@ section
             color:white;
             text-align: center;
             font-weight: bold;
-            transition: all 2.3s ease out;
+            transition: all 2.3s ease-out;
         }
     }
 }
@@ -764,11 +739,6 @@ p{
     }
 }
 
-/* ICONE POUR .ICON-HEART 
-<svg class="heart" viewBox="0 0 32 29.6">
-  <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
-	c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
-</svg> */
 /* ICONE POUR .ICON-HEART */
 .far.fa-heart
 {
@@ -794,7 +764,6 @@ p{
     &::before
     {
         content:"\f004";
-        /*transform-origin: 50% bottom;*/
         transition: color 3s ease-out; 
     }
     
@@ -805,18 +774,6 @@ p{
     }
 }
 
-/*@keyframes colorfill{ /*POUR HEART 
-    0%{
-        color:white;
-    }
-    50%{
-        color:$secondary-color;
-    }
-    100%{
-        color:$primary-color;
-    }
-    
-}*/
  /* POUR TOUTES LES PAGES */
 footer
 {
@@ -873,7 +830,6 @@ footer
 			padding-bottom: 20px;
             padding-right: 10px;
 			@include flexrow()
-            
         }
 	}
 }
