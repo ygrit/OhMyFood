@@ -15,9 +15,7 @@ body {
 }
 
 /* VARIABLES COULEURS */
-/* FUNCTION */
-/* MIXIN */
-/* PLACE-HOLDERS */
+/* MIXINS */
 /*LOADER POUR LA PAGE D'ACCUEIL*/
 .loader-container {
   background-color: #fface8;
@@ -146,7 +144,7 @@ body {
     opacity: 1;
   }
 }
-/* POUR TOUTES LES PAGES */
+/* LOGO POUR TOUTES LES PAGES */
 .topbar {
   width: 100%;
   height: 100px;
@@ -185,10 +183,9 @@ body {
   color: black;
   position: absolute;
   left: 0px;
-  top: calc(50%-25px);
+  top: 30px;
   font-size: 30px;
   font-weight: bold;
-  display: flex;
 }
 
 header {
@@ -354,7 +351,7 @@ section a {
   color: #9356DC;
 }
 
-/* PAGES DES RESTAURANTS - POUR LES BOUTONS */
+/* PAGES DE RESTAURANTS */
 .set-meal {
   width: 100%;
   max-width: 650px;
@@ -395,30 +392,13 @@ section a {
   align-items: center;
   justify-content: flex-start;
   justify-content: flex-start;
-  align-items: space-around;
-  /*padding-bottom: 40px;*/
   padding-top: 10px;
-  /* BOUTON COMMANDER */
+  /* BOUTON "COMMANDER" */
 }
 .meals__name {
   text-transform: uppercase;
   align-self: flex-start;
   padding-left: 20px;
-  /* pour l'animation s'il faut
-   &:after {
-       content: '';
-       display: block;
-       position:absolute;
-       bottom:0;
-       left:0;
-       width: 80%;
-       height: 4px;
-       background: $third-color;
-
-       transition: width 1s linear;
-       &:after:hover {
-       width:100%;
-     }*/
   opacity: 0;
   -webkit-animation: fade 1s ease-out forwards 1s;
           animation: fade 1s ease-out forwards 1s;
@@ -469,7 +449,7 @@ section a {
   }
 }
 
-/* ANIMATION FADE D'APPARITION DES BOUTONS DES PLATS SUR LES PAGES DE RESTAURANTS*/
+/* ANIMATION FADE D'APPARITION DES BOUTONS DE PLATS SUR LES PAGES DE RESTAURANTS*/
 .meal.button:nth-child(1) {
   -webkit-animation: fade 1s ease-out forwards 1.4s;
           animation: fade 1s ease-out forwards 1.4s;
@@ -490,7 +470,7 @@ section a {
           animation: fade 1s ease-out forwards 2.6s;
 }
 
-/* PAGES DE RESTAURANTS */
+/* PAGES DE RESTAURANTS - BOUTON DE COMMANDE DE MENU */
 .content {
   display: flex;
   flex-direction: row;
@@ -573,7 +553,6 @@ section a {
   align-items: center;
   justify-content: center;
   background-color: #99E2D0;
-  font: white;
 }
 .content .blue .fas.fa-check-circle {
   position: absolute;
@@ -656,7 +635,7 @@ section a {
   color: white;
   text-align: center;
   font-weight: bold;
-  transition: all 2.3s ease out;
+  transition: all 0.01s ease-out;
 }
 
 p {
@@ -764,11 +743,6 @@ p {
   position: relative;
 }
 
-/* ICONE POUR .ICON-HEART 
-<svg class="heart" viewBox="0 0 32 29.6">
-  <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
-	c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
-</svg> */
 /* ICONE POUR .ICON-HEART */
 .far.fa-heart {
   display: flex;
@@ -790,7 +764,6 @@ p {
 }
 .far.fa-heart::before {
   content: "";
-  /*transform-origin: 50% bottom;*/
   transition: color 3s ease-out;
 }
 .far.fa-heart:hover::before {
@@ -798,18 +771,6 @@ p {
   cursor: pointer;
 }
 
-/*@keyframes colorfill{ /*POUR HEART 
-    0%{
-        color:white;
-    }
-    50%{
-        color:$secondary-color;
-    }
-    100%{
-        color:$primary-color;
-    }
-
-}*/
 /* POUR TOUTES LES PAGES */
 footer {
   width: 100%;
